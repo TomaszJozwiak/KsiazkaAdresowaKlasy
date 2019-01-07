@@ -130,3 +130,8 @@ void UzytkownikMenedzer::wylogowanie()
         idZalogowanegoUzytkownika = 0;
         cout << "Wylogowano pomyslnie";
 }
+
+int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika()
+{
+    return idZalogowanegoUzytkownika;
+}
