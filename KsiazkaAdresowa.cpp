@@ -7,7 +7,8 @@ void KsiazkaAdresowa::rejestracjaUzytkownika()
 
 void KsiazkaAdresowa::logowanieUzytkownika()
 {
-    uzytkownikMenedzer.logowanieUzytkownika();
+    uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.logowanieUzytkownika());
+    adresatMenedzer.ustawIdOstatniegoAdresata(adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika()));
 }
 
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
@@ -27,5 +28,5 @@ void KsiazkaAdresowa::wylogowanie()
 
 void KsiazkaAdresowa::dodanieAdresata()
 {
-    adresatMenedzer.dodajAdresata();
+    adresatMenedzer.dodajAdresata(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
 }

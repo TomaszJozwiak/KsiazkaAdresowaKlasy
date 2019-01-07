@@ -1,12 +1,12 @@
 #include "AdresatMenedzer.h"
 
-int AdresatMenedzer::dodajAdresata()
+int AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika)
 {
     Adresat adresat;
 
     system("cls");
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    adresat = podajDaneNowegoAdresata();
+    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika);
 
     adresaci.push_back(adresat);
     plikZAdresatami.dopiszAdresataDoPliku(adresat);
@@ -14,7 +14,7 @@ int AdresatMenedzer::dodajAdresata()
     return ++idOstatniegoAdresata;
 }
 
-Adresat AdresatMenedzer::podajDaneNowegoAdresata()
+Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika)
 {
     Adresat adresat;
 
@@ -41,7 +41,12 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata()
     return adresat;
 }
 
-void AdresatMenedzer::ustawIdZalogowanegoUzytkownika(int noweIdZalogowanegoUzytkownika)
+int AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku (int idZalogowanegoUzytkownika)
 {
-    noweIdZalogowanegoUzytkownika = idZalogowanegoUzytkownika;
+    return plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku( adresaci, idZalogowanegoUzytkownika);
+}
+
+void AdresatMenedzer::ustawIdOstatniegoAdresata (int noweIdOstatniegoAdresata)
+{
+    idOstatniegoAdresata = noweIdOstatniegoAdresata;
 }

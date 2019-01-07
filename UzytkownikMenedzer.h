@@ -28,12 +28,13 @@ public:
         idZalogowanegoUzytkownika = 0;
     };
     void rejestracjaUzytkownika();
-    void logowanieUzytkownika();
+    int logowanieUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogowanie();
     int pobierzIdZalogowanegoUzytkownika();
+    int ustawIdZalogowanegoUzytkownika(int NoweIdZalogowanegoUzytkownika);
 };
 
 #endif

@@ -14,18 +14,15 @@ class AdresatMenedzer
 {
     vector <Adresat> adresaci;
     int idOstatniegoAdresata;
-    int idZalogowanegoUzytkownika;
     PlikZAdresatami plikZAdresatami;
 
 
 public:
-    AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami)
-    {
-       idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-    };
-int dodajAdresata();
-Adresat podajDaneNowegoAdresata();
-void ustawIdZalogowanegoUzytkownika(int noweIdZalogowanegoUzytkownika);
+AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami){};
+int dodajAdresata(int idZalogowanegoUzytkownika);
+Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
+int wczytajAdresatowZalogowanegoUzytkownikaZPliku (int idZalogowanegoUzytkownika);
+void ustawIdOstatniegoAdresata (int noweIdOstatniegoAdresata);
 };
 
 #endif
