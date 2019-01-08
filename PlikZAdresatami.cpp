@@ -4,7 +4,7 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 {
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::out | ios::app);
+    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
 
     if (plikTekstowy.good() == true)
     {
@@ -18,6 +18,7 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
         {
             plikTekstowy << endl << liniaZDanymiAdresata ;
         }
+        idOstatniegoAdresata++;
         plikTekstowy.close();
     }
     else
@@ -51,14 +52,14 @@ bool PlikZAdresatami::czyPlikJestPusty(fstream &plikTekstowy)
         return false;
 }
 
-int PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika)
+vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika)
 {
+    vector <Adresat> adresaci;
     Adresat adresat;
-    int idOstatniegoAdresata = 0;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
+    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
 
     if (plikTekstowy.good() == true)
     {
@@ -79,16 +80,14 @@ int PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adres
     if (daneOstaniegoAdresataWPliku != "")
     {
         idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
-        return idOstatniegoAdresata;
     }
-    else
-        return 0;
+    return adresaci;
 }
 
 int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
 {
     int pozycjaRozpoczeciaIdUzytkownika = daneJednegoAdresataOddzielonePionowymiKreskami.find_first_of('|') + 1;
-    int idUzytkownika = MetodyPomocnicze::konwersjaStringNaInt(MetodyPomocnicze::pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdUzytkownika));
+    int idUzytkownika = MetodyPomocnicze::konwersjaStringNaInt(pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdUzytkownika));
 
     return idUzytkownika;
 }
@@ -96,7 +95,7 @@ int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(st
 int PlikZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
 {
     int pozycjaRozpoczeciaIdAdresata = 0;
-    int idAdresata = MetodyPomocnicze::konwersjaStringNaInt(MetodyPomocnicze::pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdAdresata));
+    int idAdresata = MetodyPomocnicze::konwersjaStringNaInt(pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdAdresata));
     return idAdresata;
 }
 
@@ -143,4 +142,21 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionow
         }
     }
     return adresat;
+}
+
+
+string PlikZAdresatami::pobierzLiczbe(string tekst, int pozycjaZnaku)
+{
+    string liczba = "";
+    while(isdigit(tekst[pozycjaZnaku]) == true)
+    {
+        liczba += tekst[pozycjaZnaku];
+        pozycjaZnaku ++;
+    }
+    return liczba;
+}
+
+int PlikZAdresatami::pobierzIdOstatniegoAdresata ()
+{
+    return idOstatniegoAdresata;
 }
