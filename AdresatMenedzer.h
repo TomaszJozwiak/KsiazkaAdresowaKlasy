@@ -25,6 +25,8 @@ AdresatMenedzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika)
     };
 void dodajAdresata();
 Adresat podajDaneNowegoAdresata();
+void wyswietlWszystkichAdresatow();
+void wyswietlDaneAdresata(Adresat adresat);
 };
 
 #endif

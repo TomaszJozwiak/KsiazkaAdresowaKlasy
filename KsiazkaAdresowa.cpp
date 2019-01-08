@@ -21,7 +21,15 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
 {
-    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
+     if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
+    }
+        else
+    {
+        cout << "Aby zmienic haslo nalezy sie zalogowac" << endl;
+        system("pause");
+    }
 }
 
 void KsiazkaAdresowa::wylogowanie()
@@ -36,6 +44,19 @@ void KsiazkaAdresowa::dodajAdresata()
     if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
     {
         adresatMenedzer->dodajAdresata();
+    }
+    else
+    {
+        cout << "Aby dodac adresata nalezy sie zalogowac" << endl;
+        system("pause");
+    }
+}
+
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
+{
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        adresatMenedzer->wyswietlWszystkichAdresatow();
     }
     else
     {
