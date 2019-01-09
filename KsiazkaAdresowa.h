@@ -32,6 +32,7 @@ public:
     void wylogowanie();
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
+    void wyszukajAdresatowPoImieniu();
 };
 
 #endif

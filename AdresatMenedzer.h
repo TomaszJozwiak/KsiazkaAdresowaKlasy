@@ -27,6 +27,8 @@ void dodajAdresata();
 Adresat podajDaneNowegoAdresata();
 void wyswietlWszystkichAdresatow();
 void wyswietlDaneAdresata(Adresat adresat);
+void wyszukajAdresatowPoImieniu();
+void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
 };
 
 #endif

@@ -60,7 +60,20 @@ void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
     }
     else
     {
-        cout << "Aby dodac adresata nalezy sie zalogowac" << endl;
+        cout << "Aby wyswietlic adresatow nalezy sie zalogowac" << endl;
+        system("pause");
+    }
+}
+
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
+{
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        adresatMenedzer->wyszukajAdresatowPoImieniu();
+    }
+    else
+    {
+        cout << "Aby wyszukac adresata nalezy sie zalogowac" << endl;
         system("pause");
     }
 }
