@@ -22,10 +22,10 @@ string pobierzLiczbe(string tekst, int pozycjaZnaku);
 Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
 int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
 int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-int zwrocNumerLiniiSzukanegoAdresata(int idAdresata);
 void zmienNazweTymczasowegoPlikuNaNazweOdczytywanegoPliku(string nazwaTymczasowegoPlikuZRozszerzeniem, string nazwaPlikuZRozszerzeniem);
 void usunOdczytywanyPlik(string nazwaPlikuZRozszerzeniem);
 void edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
+void pobierzZPlikuIdOstatniegoAdresata();
 
 public:
 
@@ -39,6 +39,9 @@ void dopiszAdresataDoPliku(Adresat adresat);
 vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
 int pobierzIdOstatniegoAdresata ();
 void zaktualizujDaneEdytowanegoAdresata(Adresat adresat, int idEdytowanegoAdresata);
+int zwrocNumerLiniiSzukanegoAdresata(int idAdresata);
+void usunWybranaLinieWPliku(int numerUsuwanejLinii);
+void podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(int idUsuwanegoAdresata);
 };
 
 #endif
