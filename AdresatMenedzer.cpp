@@ -247,28 +247,9 @@ char AdresatMenedzer::wybierzOpcjeZMenuEdycja()
     cout << "5 - Adres" << endl;
     cout << "6 - Powrot " << endl;
     cout << endl << "Twoj wybor: ";
-    wybor = wczytajZnak();
+    wybor = MetodyPomocnicze::wczytajZnak();
 
     return wybor;
-}
-
-char AdresatMenedzer::wczytajZnak()
-{
-    string wejscie = "";
-    char znak  = {0};
-
-    while (true)
-    {
-        getline(cin, wejscie);
-
-        if (wejscie.length() == 1)
-        {
-            znak = wejscie[0];
-            break;
-        }
-        cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
-    }
-    return znak;
 }
 
 void AdresatMenedzer::usunAdresata()
@@ -290,7 +271,7 @@ void AdresatMenedzer::usunAdresata()
         {
             czyIstniejeAdresat = true;
             cout << endl << "Potwierdz naciskajac klawisz 't': ";
-            znak = wczytajZnak();
+            znak = MetodyPomocnicze::wczytajZnak();
             if (znak == 't')
             {
                 numerLiniiUsuwanegoAdresata = plikZAdresatami.zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);

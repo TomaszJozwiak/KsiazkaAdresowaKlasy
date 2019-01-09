@@ -19,7 +19,6 @@ class AdresatMenedzer
     int podajIdWybranegoAdresata();
     int wczytajLiczbeCalkowita();
     char wybierzOpcjeZMenuEdycja();
-    char wczytajZnak();
 
 
 public:
