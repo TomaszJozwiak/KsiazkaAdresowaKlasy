@@ -16,6 +16,11 @@ class AdresatMenedzer
     vector <Adresat> adresaci;
     PlikZAdresatami plikZAdresatami;
 
+    int podajIdWybranegoAdresata();
+    int wczytajLiczbeCalkowita();
+    char wybierzOpcjeZMenuEdycja();
+    char wczytajZnak();
+
 
 public:
 AdresatMenedzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika)
@@ -30,6 +35,7 @@ void wyswietlDaneAdresata(Adresat adresat);
 void wyszukajAdresatowPoImieniu();
 void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
 void wyszukajAdresatowPoNazwisku();
+void edytujAdresata();
 };
 
 #endif

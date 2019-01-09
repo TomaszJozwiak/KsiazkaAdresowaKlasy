@@ -11,6 +11,7 @@ int main()
     ksiazkaAdresowa.logowanieUzytkownika();
     ksiazkaAdresowa.dodajAdresata();
     ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+    ksiazkaAdresowa.edytujAdresata();
     ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
     ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
     ksiazkaAdresowa.wylogowanie();
